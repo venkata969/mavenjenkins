@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     tools {
-        maven "M3"
+        maven "maven"
     }
 
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                git branch: 'main', url: 'https://github.com/venkata969/mavenjenkins.git'
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post {
